@@ -1,0 +1,397 @@
+:root {
+  --bg: #efe4d2;
+  --paper: #fbf3e4;
+  --card: #fffdf8;
+  --ink: #2b2118;
+  --muted: #6b5a4a;
+  --line: #eadbc4;
+  --terra: #b2452f;
+  --mustard: #e9a23b;
+  --sage: #4f7356;
+  --sage-soft: #e4ebdd;
+  --danger: #9b2b1b;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-top: 8px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 2px;
+}
+
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  background: var(--paper);
+  padding: max(26px, env(safe-area-inset-top)) 16px 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.stars-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--mustard);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 14px 16px;
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+
+.bar {
+  margin-top: 10px;
+  height: 12px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar > div {
+  height: 100%;
+  background: var(--sage);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.now {
+  background: var(--terra);
+  color: #fff8ee;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.now .label,
+.rule .label {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.now-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 2px var(--line);
+  text-align: left;
+  cursor: pointer;
+}
+
+.task.is-done {
+  background: var(--sage-soft);
+}
+
+.check {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--line);
+}
+
+.is-done .check {
+  background: var(--sage);
+  color: var(--card);
+}
+
+.task-label {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.is-done .task-label {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task-pts {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.btn {
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--sage);
+  color: var(--card);
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  background: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+
+.btn.light {
+  background: var(--paper);
+  color: #7a2a18;
+  width: 100%;
+  min-height: 52px;
+  font-size: 18px;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+
+.btn.small-btn {
+  min-height: 40px;
+  padding: 0 12px;
+  font-size: 15px;
+}
+
+.balance {
+  background: var(--mustard);
+  border-radius: 24px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.big {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.reward {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.reward.locked {
+  background: #f3e6d3;
+  box-shadow: none;
+}
+
+.rule {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 20px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rule .label {
+  color: var(--mustard);
+}
+
+.rule p {
+  line-height: 1.35;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field input,
+.field textarea,
+.edit-row input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 2px var(--line);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.edit-row {
+  display: grid;
+  grid-template-columns: 1fr 64px auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-row input[type='number'] {
+  text-align: center;
+  padding: 10px 6px;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.tabs {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
+  background: var(--card);
+  box-shadow: inset 0 2px 0 var(--line);
+}
+
+.tabs button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: var(--ink);
+  color: var(--paper);
+}
